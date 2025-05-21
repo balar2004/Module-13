@@ -1,14 +1,11 @@
-# Exp.No:31  
-## IMPLEMENTATION OF STACK
+# Ex.No:7B IMPLEMENTATION OF STACK
 
----
 
-### AIM  
+## AIM  
 To write a Python program to implement a stack using a list and its built-in methods (`append()`, `pop()`).
 
----
 
-### ALGORITHM
+## ALGORITHM
 
 1. **Start the program.**
 2. **Define a class `st`** with the following methods:
@@ -24,36 +21,24 @@ To write a Python program to implement a stack using a list and its built-in met
 
 ---
 
-### PROGRAM
+## PROGRAM
+
 ```
 stack = []
-class st:
-    def push(self,S):
-        for i in S:
-            stack.append(i)
-        return
-    
-    def pop(self):
-        if stack:
-            print("Element popped : ",stack.pop())
-        else:
-            print("The stack is empty")
-        return 
-        
-    def peek(self):
-        print("Elements in the stack \n",stack)
-        return 
+for i in range(3):
+    a=input()
+    stack.append(a)
+print("Stack before elements are popped")
+print(stack)
 
-s=st()
-size=int(input())
-l=[i for i in range(1,size) if i%2!=0]
-s.push(l)
-s.peek()
-s.pop()
-s.peek()
+for i in range(3):
+    stack.pop()
+print("\nStack after elements are popped:")
+print(stack)
+
 ```
-### OUTPUT
-![Screenshot 2025-05-05 001600](https://github.com/user-attachments/assets/3ca0564c-030c-4c9e-8838-8a84c10718c3)
+## OUTPUT 
+![Screenshot 2025-05-19 113412](https://github.com/user-attachments/assets/b8308dfd-b452-4658-9748-63eb830543fe)
 
-### RESULT
-Thus, the python program to implement a stack using a list and its built-in methods (append(), pop()) has been executed and verified successfully.
+## RESULT
+Thus a Python program to implement a stack using a list and its built-in methods (`append()`, `pop()`) has been successfully implemented.
