@@ -1,14 +1,9 @@
-# Exp.No:33  
-## POSTFIX EVALUATION
+# Ex.No:7C POSTFIX EVALUATION
 
----
-
-### AIM  
+## AIM  
 To write a Python program to evaluate a user-given Postfix expression that contains Multiplication and Addition operators using the stack concept.
 
----
-
-### ALGORITHM
+## ALGORITHM
 
 1. **Start the program.**
 2. Define a set named `OPERATORS` containing all the valid operators: `*, +, **, -, /, %`.
@@ -27,30 +22,36 @@ To write a Python program to evaluate a user-given Postfix expression that conta
 8. Call the function `evaluate_postfix()` with the input and print the result.
 9. **End the program.**
 
----
 
-### PROGRAM
+## PROGRAM
 
 ```
-OPERATORS=set(['*','+']) 
+OPERATORS=set(['','-','+','%','/','*']) 
 
 
 def evaluate_postfix(expression):
     stack=[] 
-    for i in expression:
-        if i not in OPERATORS:
-            stack.append(i)  
-        
+    for char in expression:
+        if char not in OPERATORS:
+            stack.append(char)
         else:
-            a=stack.pop()  
+            a=stack.pop()
             b=stack.pop()
-        
-            if i=='+':
-                res=int(b)+int(a)  
-            elif i=='*':
+            if char=='+':
+                res=int(b)+int(a)
+            elif char=='-':
+                res=int(b)-int(a)
+            elif char=='*':
                 res=int(b)*int(a)
-            
-            stack.append(res) 
+            elif char=='/':
+                res=int(b)/int(a)
+            elif char=='%':
+                res=int(b)%int(a)
+            elif char=='':
+                res=int(b)**int(a)
+                
+            stack.append(res)
+    
     return stack[0]
 
 expression = input()
@@ -59,9 +60,9 @@ print('Evaluation result: ',evaluate_postfix(expression))
 
 ```
 
-### OUTPUT
-![Screenshot 2025-05-05 000328](https://github.com/user-attachments/assets/7d1c9342-a6d9-4f15-90a2-04440fb30a49)
+## OUTPUT
+![Screenshot 2025-05-19 113706](https://github.com/user-attachments/assets/5a8c4112-52b2-4e11-bdde-16f46d21fcd5)
 
+## RESULT
+Thus a Python program to evaluate a user-given Postfix expression that contains Multiplication and Addition operators using the stack concept has been successfulyy implemented.
 
-### RESULT
-Thus, the python program to evaluate a user-given Postfix expression that contains Multiplication and Addition operators using the stack concept has been executed and verified successfully.
