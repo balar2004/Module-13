@@ -1,72 +1,67 @@
-# Exp.No:32  
-## CONVERSION OF INFIX TO POSTFIX
+# Ex.No:7A CONVERSION OF INFIX TO POSTFIX
 
 ---
 
-### AIM  
-To write a Python program to convert a given Infix expression to Postfix expression by following the precedence and associative rules. The input expression contains only Division, Subtraction, and Bitwise AND operators. A dictionary is used to set the priority for operators, and a set is used to hold the operators used in the given expression.
+## AIM  
+To Write a Python program to convert given Infix expression to Postfix expression by following the precedence and associative rule. 
+The input expression contains only  ^ and * . Use dictionary to set the priority for operators. Use set to hold the operators used in the given expression.
 
 ---
 
-### ALGORITHM
+## ALGORITHM
 
-1. **Start the program.**
-2. **Initialize an empty stack** and an empty output string.
-3. **Iterate through each character** in the infix expression:
-   - If the character is **not an operator**, append it directly to the output string.
-   - If the character is an **open parenthesis '('**, push it onto the stack.
-   - If the character is a **close parenthesis ')'**, pop from the stack and append to the output until encountering a left parenthesis '('.
-   - If the character is an **operator**, handle it based on precedence:
-     - While there’s an operator at the top of the stack with higher or equal precedence, pop the stack and append those operators to the output.
-     - Push the current operator onto the stack.
-4. **Use a priority dictionary** to define operator precedence, ensuring higher precedence operators are placed before lower precedence ones.
-5. Once the expression is fully processed, continue popping any remaining operators from the stack and append them to the output.
-6. **Return the final postfix expression.**
-7. **Print the result.**
-8. **End the program.**
+1. Initialize an empty stack for operators and an empty string for output (postfix expression).
+2. Scan the infix expression from left to right.
+3. For each character in the expression:
+4. If it's an operand (not in Op), append it to the output.
+5. If it's '(', push it onto the stack.
+6. If it's ')', pop from the stack and append to output until '(' is found. Discard '('.
+7. If it's an operator (* or ^), then: While stack is not empty and top of stack is not '(' and precedence of current operator is less than or equal to the precedence of the top of the stack: Pop from stack and append to output.
+8. Push current operator onto stack.
+9. After scanning, pop and append all remaining operators from the stack to the output.
+10. Return the postfix expression.
 
 ---
 
-### PROGRAM
+## PROGRAM
 
 ```
-Operators = set(['+', '-', '*', '/', '(', ')', '^'])  
-Priority = {'+':1, '-':1, '*':2, '/':2, '^':3, '(':0, ')':0} 
+give me algorthim for this program                                                                                                                 Op = set(\['*','(','^',')'])
+pr= {'*':1,'(':2,'^':3,')':4}
+
+def infixToPostfix(exp):
+
 stack = [] 
-output = []
- 
-def infixToPostfix(expression):
-    for char in expression:
-        if char not in Operators:
-            output.append(char)
-            
-        elif char == '(':
-            stack.append(char)
-            
-        elif char == ')':
-            while (stack and stack[-1]!='('):
-                output.append(stack.pop())
-            stack.pop()
-            
-        else:
-            while stack and Priority[char] <= Priority[stack[-1]]:
-                output.append(stack.pop())
-            stack.append(char)
+otp = '' 
 
+for char in exp:
+    if char not in Op:
+        otp+=char
+    elif char=='(':
+        stack.extend('(')
+    elif char==')':
+        while stack and stack[-1]!='(':
+            otp+=stack.pop()
+        stack.pop()
+    else:
+        while stack and stack[-1]!='('and pr[char]<=pr[stack[-1]]:
+            otp+=stack.pop()
+        stack.append(char)
+while stack:
+    otp+=stack.pop()# Write your code here
 
-    while stack:
-        output.append(stack.pop())
-    
-    return ''.join(output)
-    
-expression = input()
-print("Infix notation: ",expression)
-print("Postfix notation: ",infixToPostfix(expression))
+return otp
+
+exp =input()
+print('infix notation: ',exp)
+
+print('postfix notation: ',infixToPostfix(exp))
+
 ```
 
-### OUTPUT
-![Screenshot 2025-05-04 235547](https://github.com/user-attachments/assets/d699a6b0-d6e6-4465-b23f-b56a729eb538)
+## OUTPUT
+![Screenshot 2025-05-18 143939](https://github.com/user-attachments/assets/cff07070-1ac2-4336-9b0a-3de40151ded2)
 
+## RESULT
+Thus  a Python program to convert given Infix expression to Postfix expression by following the precedence and associative rule has been successfully implemented.
 
-### RESULT
-Thus,the python program to convert a given Infix expression to Postfix expression by following the precedence and associative rules has been executed and verified successfully.
