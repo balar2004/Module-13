@@ -1,12 +1,9 @@
 # Ex.No:7A CONVERSION OF INFIX TO POSTFIX
 
----
-
 ## AIM  
 To Write a Python program to convert given Infix expression to Postfix expression by following the precedence and associative rule. 
 The input expression contains only  ^ and * . Use dictionary to set the priority for operators. Use set to hold the operators used in the given expression.
 
----
 
 ## ALGORITHM
 
@@ -21,7 +18,6 @@ The input expression contains only  ^ and * . Use dictionary to set the priority
 9. After scanning, pop and append all remaining operators from the stack to the output.
 10. Return the postfix expression.
 
----
 
 ## PROGRAM
 
